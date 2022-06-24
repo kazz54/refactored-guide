@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'vendors/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/css/grid.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/css/ionicons.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'resources/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'resources/css/queries.css' %}">
+        <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic" rel="stylesheet">
+       
+<!-- Bootstrap -->
+		
+		 <title>Cred {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+	{% block content %} 
+        <header>
+            <nav>
+                <div class="row">
+                    <img src="{% static 'resources/img/costech.png' %}" alt="Costech logo" class="logo">
+					<a class="navbar-brand" href="{% url 'index' %}"> 
+                    <img src="{% static 'resources/img/costech.png' %}" alt="Costech logo" class="logo-black">
+					 </a>
+                    
+					    <ul class="main-nav js--main-nav">
+  
+                        <li><a href="#features">Equpment database</a></li>
+                        <li><a href="#works">How the sirvice works</a></li>
+                        
+                        <li><a href="#form">Contact Us</a></li>
+                        </ul>
+						<a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
+                </div>
+            </nav>
+            <div class="hero-text-box">
+                <h1>Welcome to the Online Costech Research Equipment Database Submissions Portal</h1>
+                <a class="btn btn-full js--scroll-to-plans" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-ghost js--scroll-to-start" href="#works">Learn more</a>
+            </div>
+            
+        </header>
+        
+        <section class="section-features js--section-features" id="features">
+            <div class="row">
+                <h2>Costech Research &mdash; Equipment Database</h2>
+                <p class="long-copy">
+                   Welcome to the Online Costech Research Equipment Database Submissions Portal
+This Portal allows research institues to submit data of their research equipment 
+to the Commission electronically.
+The Portal™ olso provides information about research equipment available at the Institutions Nationwide.<br>  
+Find contact details for booking training, equipment specifications, and equipment locations.<br>
+If you have any comments or ideas that you think may improve this service, 
+please email the Commission at support@costech.or.tz.
+                </p>
+            </div>
+            
+           
+            </div>   
+        </section>
+        
+		
+		    <section class="section-steps" id="works">
+            <div class="row">
+               
+                <h2>Who is the service for?</h2>
+            
+            </div>
+            <div class="row">
+                <div class="col span-1-of-2 steps-box">
+                    <img src="{% static 'resources/img/smartphone.jpg' %}" alt="Costech app on iPhone" class="app-screen js--wp-2">
+                </div>
+                <div class="col span-1-of-2 steps-box">
+                    <div class="works-step clearfix">
+                        <div>1</div>
+                        <p>Research staff.</p>
+                    </div>
+                    <div class="works-step clearfix">
+                        <div>2</div>
+                        <p>Research facilities and equipment managers.</p>
+                    </div>
+                    <div class="works-step clearfix">
+                        <div>3</div>
+                        <p>The service is Free and is accesable across device.</p>
+                    </div>
+                    
+                    <a href="#" class="btn-app"><img src="{% static 'resources/img/download-app.svg' %}" alt="App Store Button"></a>
+                    <a href="#" class="btn-app"><img src="{% static 'resources/img/download-app-android.png' %}" alt="Play Store Button"></a>
+                </div>
+            </div>
+        </section>
+       
+        
+        <section class="section-form" id="form">>
+            <div class="row">
+                <h2>We're happy to hear from you</h2>
+            </div>
+            <div class="row">
+                <form method="post" action="#" class="contact-form">
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="name" id="name" placeholder="Your name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="email" name="email" id="email" placeholder="Your email" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="find-us">How did you find us?</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <select name="find-us" id="find-us">
+                                <option value="friends" selected>Friends</option>
+                                <option value="search">Search engine</option>
+                                <option value="ad">Advertisement</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Newsletter?</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="checkbox" name="news" id="news" checked> Yes, please
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Drop us a line</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <textarea name="message" placeholder="Your message"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="submit" value="Send it!">
+                        </div>
+                    </div>
+                    
+                </form>
+                
+            </div>
+        </section>
+        
+        <footer>
+            <div class="row">
+                <div class="col span-1-of-2">
+                    <ul class="footer-nav">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">iOS App</a></li>
+                        <li><a href="#">Android App</a></li>
+                    </ul>
+                </div>
+                <div class="col span-1-of-2">
+                    <ul class="social-links">
+                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                        <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+               
+            </div>
+        </footer>
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
+    <script src="{% static 'vendors/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'resources/js/script.js' %}"></script>
+	
+    {% endblock %}
+    </body>  
+    
+</html>

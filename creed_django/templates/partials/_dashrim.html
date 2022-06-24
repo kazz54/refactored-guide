@@ -1,0 +1,35 @@
+{% for post in user_posts %}
+            {% if post %}
+			<div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Project title</th>
+                  <th scope="col">Submited date</th>
+				  <th scope="col">Status</th>
+				  <th scope="col">Action</th>
+                  <th></th>
+				  <th></th>			  
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+					<td><a href="{% url 'pdf' pk=post.pk %}">{{ post.research_title }}</a></td>
+                    <td>{{ post.created_date }}</td>
+                    <td>{{ post.status }}</td>
+					<td>{{ post.author }}</td>
+					 
+					 
+			
+                     		            
+                	</tr>
+              </tbody>
+            </table>
+			
+			
+			
+             {% else %}
+            <p>You have note applied for any research</p>
+            {% endif %}
+			{% endfor %}
+        </div>

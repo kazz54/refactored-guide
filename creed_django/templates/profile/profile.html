@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% crispy form %}                                                                                                                          
+{{ form.field|as_crispy_field }}
+
+
+
+{% block javascript %}
+  <script src="{% static 'books/js/test152.js' %}"></script>
+{% endblock %}
+
+
+{% block title %} | Equipment Information {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="main-body">
+    
+          
+           <!-- Breadcrumb -->
+		  
+          
+          <!-- /Breadcrumb -->
+    
+          
+    
+         
+              <div class="card">
+                <div class="card-body">
+                  
+				    <h1>Add or Review Equipment</h1>
+					<hr>
+					     
+					
+				  
+				   <form method="POST" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+					 <div class="form-row">
+					 </div>
+				       
+				   <div class="form-row">
+                   <div class="form-group col-md-2 mb-0">
+                   {{ form.name|as_crispy_field }}
+                   </div>
+                   <div class="form-group col-md-4 mb-0">
+                   {{ form.title|as_crispy_field }}
+                   </div>
+				   <div class="form-group col-md-4 mb-0">
+                   {{ form.email|as_crispy_field }}
+                   </div>
+				   <div class="form-group col-md-2 mb-0">
+                   {{ form.phone_number|as_crispy_field }}
+                   </div>
+                   </div>
+				   <div class="form-row">
+				   <div class="form-group col-md-2 mb-0">
+                   {{ form.institution_name|as_crispy_field }}
+                   </div>
+				   <div class="form-group col-md-4 mb-0">
+                   {{ form.section|as_crispy_field }}
+                   </div>
+				   <div class="form-group col-md-4 mb-0">
+                   {{ form.region|as_crispy_field }}
+                   </div>
+				    <div class="form-group col-md-2 mb-0">
+                   {{ form.institution_address|as_crispy_field }}
+                   </div>
+				   </div>
+                   {{ form.sector_your_instution_belongs|as_crispy_field }}
+				   {{ form.other_institution_belong|as_crispy_field }}
+				   {{ form.category_of_institution|as_crispy_field }}
+				   {{ form.mandate_of_institution|as_crispy_field }}
+				   {{ form.other_mandate_of_institution|as_crispy_field }}
+				  
+				   
+                  
+				   
+                   	<button type="submit" class="btn btn-info">Proceed</button>
+                   </form>	
+
+                   
+  </div>
+  </div>
+  </div>
+  </div>
+ 
+  					
+				
+
+  
+  {% endblock %}
+  
+  
+  
+  
+  

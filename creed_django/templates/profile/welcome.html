@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% crispy form %}                                                                                                                          
+{{ form.field|as_crispy_field }}
+
+
+
+{% block javascript %}
+  <script src="{% static 'books/js/test2.js' %}"></script>
+{% endblock %}
+
+
+{% block title %} | Project Information {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="main-body">
+    
+          
+           <!-- Breadcrumb -->
+		   
+         
+          <!-- /Breadcrumb -->
+    
+          
+    
+         
+              <div class="card">
+                <div class="card-body">
+                  <h1>Welcome</h1>
+				    <hr>
+                        <header class="app__header">
+    <section class="app__hero">
+    <header class="app__heading">
+		<h3> before proceeding filling out the application form, please take time to read this clearance guideline below.</h3> 
+      
+      <p class="app__description app__description--top">
+       <br>
+	   <ul>
+       Application fee USD 50<br>
+       Completed application form<br>
+       Completed curriculum vitae form<br>
+       A passport size photo<br>
+	   </ul>
+       Click to download the clearance guideline
+      </p>
+	  <a class="btn btn-info" href="">
+			Proceed</a>
+    </header>
+			    
+                 
+                  
+              
+             
+
+            </div>
+          </div>
+
+        </div>
+    </div>
+	
+	<!-- Inquiry Modal -->
+  
+  {% endblock %}

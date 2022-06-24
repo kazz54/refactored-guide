@@ -1,0 +1,49 @@
+
+
+
+
+ 
+		   {% for post in user_posts %}
+            
+			
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Research title</th>
+                  <th scope="col">Submited date</th>
+				  <th scope="col">Status</th>
+				  <th scope="col">Action</th>
+                  <th></th>
+				  <th></th>			  
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+				    <td><a href="{% url 'his_application_edit' pk=post.pk %}">{{ post.title_of_research_applied }}</td>
+                    
+					<td>{{ post.created_date }}</td>
+                    <td>{{ post.status }}</td>
+					<td>{{ post.hisus }}</td>
+					 
+					 
+			
+                     		            
+                	</tr>
+              </tbody>
+            </table>
+			
+			
+			
+             
+            <p>You have note applied for any research</p>
+            
+			{% endfor %}
+       
+
+
+
+
+
+    
+    
+

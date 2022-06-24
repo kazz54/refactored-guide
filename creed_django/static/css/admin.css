@@ -1,0 +1,63 @@
+#header {
+  height: 50px;
+  background: #10284e;
+  color: #fff;
+}
+
+#branding h1 {
+  color: #fff;
+}
+
+a:link,
+a:visited {
+  color:#10284e;
+}
+
+div.breadcrumbs {
+  background: #30caa0;
+  color: #10284e;
+}
+
+div.breadcrumbs a {
+  color: #333;
+}
+
+.module h2, .module caption, .inline-group h2 {
+  background: #30caa0;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+  background: #30caa0 !important;
+  color: #fff;
+}
+
+.selector-chosen h2 {
+    background: #30caa0!important;
+    color: #fff;
+}
+
+
+.submit-row input, .submit-row input.default, .submit-row a, .submit-row a.closelink, .selector-chosen h2 {
+    float: none;
+    margin: 0 0 10px;
+    text-align: center;
+    background-color: #30caa0 !important;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #30caa0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #30caa0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
