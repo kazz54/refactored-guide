@@ -10,9 +10,10 @@ from .views import (
 )
 
 urlpatterns = [
-#    path('admin/', admin.site.urls),
+#    path('admin/', admin.site.urls), list/labaratory/category
 #    path('', indexView),
-    path('category/labaratory', views.indexView, name='indexView'),
+    path('list/labaratory/category', views.lab_index, name='lab_index'),
+    path('add/labaratory/category', views.indexView, name='indexView'),
     path('post/ajax/labcat', postLabcategory, name = "post_labcat"),
 #    path('dashboard', views.dashboard, name='dashboard'),
     path('get/ajax/validate/nickname', checkNickName, name = "validate_nickname"),

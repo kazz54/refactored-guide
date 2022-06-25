@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'appcreed',
 #    'assement',
     'labcategory',
+    'radiocategory',
 #    'apptech',
 #    'insidetech',
 ]
@@ -142,7 +143,7 @@ LOGIN_URL = 'login'
 
 LOGOUT_URL = 'logout'
 
-LOGIN_REDIRECT_URL = 'profile'
+LOGIN_REDIRECT_URL = 'dashboard'
 
 LOGOUT_REDIRECT_URL = 'login'
 

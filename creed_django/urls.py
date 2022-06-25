@@ -26,8 +26,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('', include('appcreed.urls')),
     path('add/', include('accounts.urls')),
-#    path('user/', include('assement.urls')),
-#    path('user/', include('insidetech.urls')),
-    path('add/', include('labcategory.urls')),
+    path('equipment/', include('labcategory.urls')),
+    path('equipment/', include('radiocategory.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

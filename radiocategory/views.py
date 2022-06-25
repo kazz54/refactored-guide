@@ -1,31 +1,30 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.core import serializers
-from .forms import LabcategoryForm
-from django.utils import timezone
-from .models import Labcategory
+from .forms import RadcategoryForm
+from .models import Radcategory
 
 from django.views import View
 
 
 
 
-def indexView(request):
+def index2View(request):
     user = request.user
-    form = LabcategoryForm()
-    labcategorys = Labcategory.objects.filter(spous=request.user).exclude()    
-    return render(request, "index.html", {"form": form, "labcategorys": labcategorys})
+    form = RadcategoryForm()
+    radcategorys = Radcategory.objects.filter(radusr=request.user).exclude()
+    return render(request, "index2.html", {"form": form, "radcategorys": radcategorys})
+
+def rad_index(request):
+    radcategorys = Radcategory.objects.all()
+    return render(request, 'prif/rad_index.html', {'radcategorys': radcategorys})
 
 
-def lab_index(request):
-    labcategorys = Labcategory.objects.all()
-    return render(request, 'prif/lab_index.html', {'labcategorys': labcategorys})
-
-def postLabcategory(request):
+def postRadcategory(request):
     # request should be ajax and method should be POST.
     if request.is_ajax and request.method == "POST":
         # get the form data
-        form = LabcategoryForm(request.POST)
+        form = RadcategoryForm(request.POST)
         # save the data and after fetch the object in instance
         if form.is_valid():
             instance = form.save()
@@ -47,7 +46,7 @@ def checkNickName(request):
         # get the nick name from the client side.
         nick_name = request.GET.get("nick_name", None)
         # check for the nick name in the database.
-        if Labcategory.objects.filter(nick_name = nick_name).exists():
+        if Radcategory.objects.filter(nick_name = nick_name).exists():
             # if nick_name found return not valid new Labcategory
             return JsonResponse({"valid":False}, status = 200)
         else:
@@ -59,15 +58,15 @@ def checkNickName(request):
 
 
 
-class LabcategoryView(View):
-    form_class = LabcategoryForm
-    template_name = "index.html"
+class RadcategoryView(View):
+    form_class = RadcategoryForm
+    template_name = "index2.html"
 
     def get(self, *args, **kwargs):
         form = self.form_class()
-        labcategorys = Labcategory.objects.all()
+        radcategorys = Radcategory.objects.all()
         return render(self.request, self.template_name, 
-            {"form": form, "labcategorys": labcategorys})
+            {"form": form, "radcategorys": radcategorys})
 
 #    def post(self, *args, **kwargs):
         # request should be ajax and method should be POST.

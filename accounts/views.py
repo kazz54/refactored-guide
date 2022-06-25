@@ -49,6 +49,8 @@ class ProfileView(UpdateView):
     
 
 def welcome(request):
-    return render(request, 'prif/crispy_form.html')    
+    return render(request, 'prif/crispy_form.html')
+
+    
         
 

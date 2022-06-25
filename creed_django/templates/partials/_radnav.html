@@ -1,0 +1,37 @@
+  
+<div class="container-fluid">
+<h2>A list of available Techinologies from Radiology category</h2>
+    <table class="table table-striped table-sm" id="my_friends">
+        <thead>
+            <tr>
+                <th>Nick name</th>
+                <th>Name</th>
+                <th>Hardware</th>
+                <th>Software</th>
+                <th>Licensed</th>
+                <th>Both</th>
+				<th>Open Souce</th>
+				<th>Developed</th>
+				<th>Capacity</th>
+				<th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for radcategory in radcategorys %}
+        <tr>
+            <td>{{radcategory.nick_name}}</td>
+            <td>{{radcategory.name}}</td>
+            <td>{{radcategory.hardware}}</td>
+            <td>{{radcategory.software}}</td>
+            <td>{{radcategory.licensed}}</td>
+            <td>{{radcategory.both}}</td>
+			<td>{{radcategory.open_souce}}</td>
+			<td>{{radcategory.developed}}</td>
+			<td>{{radcategory.capacity}}</td>
+			<td>{{radcategory.status}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>  

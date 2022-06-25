@@ -1,0 +1,37 @@
+
+   <h2>A list of available Techinologies from Labaratory category</h2>
+    <table class="table table-striped table-sm" id="my_friends">
+        <thead>
+            <tr>
+                <th>Nick name</th>
+                <th>Name</th>
+                <th>Hardware</th>
+                <th>Software</th>
+                <th>Licensed</th>
+                <th>Both</th>
+				<th>Open Souce</th>
+				<th>Developed</th>
+				<th>Capacity</th>
+				<th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for labcategory in labcategorys %}
+        <tr>
+            <td>{{labcategory.nick_name}}</td>
+            <td>{{labcategory.name}}</td>
+            <td>{{labcategory.hardware}}</td>
+            <td>{{labcategory.software}}</td>
+            <td>{{labcategory.licensed}}</td>
+            <td>{{labcategory.both}}</td>
+			<td>{{labcategory.open_souce}}</td>
+			<td>{{labcategory.developed}}</td>
+			<td>{{labcategory.capacity}}</td>
+			<td>{{labcategory.status}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+</div>
