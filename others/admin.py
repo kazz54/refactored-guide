@@ -1,9 +1,9 @@
 from import_export.admin import ImportExportModelAdmin
 from django.contrib import admin
-from .models import Labcategory
+from .models import Othcat
 
 
 class ProfileAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     pass
-admin.site.register(Labcategory, ProfileAdmin)
+admin.site.register(Othcat, ProfileAdmin)
 

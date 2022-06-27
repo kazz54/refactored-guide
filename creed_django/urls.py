@@ -28,5 +28,7 @@ urlpatterns = [
     path('add/', include('accounts.urls')),
     path('equipment/', include('labcategory.urls')),
     path('equipment/', include('radiocategory.urls')),
+    path('equipment/', include('microbiology.urls')),
+    path('equipment/', include('others.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

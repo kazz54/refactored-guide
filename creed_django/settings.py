@@ -41,11 +41,11 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'accounts',
     'appcreed',
-#    'assement',
     'labcategory',
     'radiocategory',
-#    'apptech',
-#    'insidetech',
+    'microbiology',
+    'others',
+    'import_export',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [

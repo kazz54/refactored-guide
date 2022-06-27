@@ -1,5 +1,10 @@
-﻿from django.contrib import admin
+﻿from import_export.admin import ImportExportModelAdmin
+from django.contrib import admin
 from .models import User
 
 
-admin.site.register(User)
+
+class labAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    pass
+admin.site.register(User, labAdmin)
+
