@@ -2,12 +2,14 @@
 from __future__ import unicode_literals
 from django.db import models
 from model_utils import Choices
+#from accounts.models import Category
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
 # Create your models here.
 class Labcategory(models.Model):
     spous = models.ForeignKey(User, on_delete=models.CASCADE, related_name='spous')
+#    sect = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='sect')
     # NICK NAME should be unique
     nick_name = models.CharField(verbose_name='Institution Name', max_length=100, unique =  True)
     name = models.CharField(verbose_name='Technology name',blank=True, null=True, max_length=100)

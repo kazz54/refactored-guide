@@ -4,9 +4,11 @@ from django.views.generic import TemplateView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('register/', views.RegistrationView.as_view(), name='register'),
+#    path('register/', views.RegistrationView.as_view(), name='register'),
+    path('register/', views.RegistrationView, name='register'),
 #    path('profile/passport/', views.ProfilePassportView.as_view(), name='passport'),
-    path('equipment/', views.ProfileView.as_view(), name='profile'), 
+    path('equipment/', views.ProfileView.as_view(), name='profile'),
+#    path('equipment/', views.ProfileView, name='profile'),    
     path('equipment/category', views.welcome, name='welcome'),
     
 #    path('profile/education/', views.ProfileEducationView.as_view(), name='education'), 

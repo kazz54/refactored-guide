@@ -3,18 +3,22 @@ from django.http import JsonResponse
 from django.core import serializers
 from .forms import LabcategoryForm
 from django.utils import timezone
+from django.contrib.auth.decorators import permission_required
 from .models import Labcategory
 
 from django.views import View
 
 
 
-
+#@permission_required('add_labcategory''change_labcategory')
 def indexView(request):
-    user = request.user
-    form = LabcategoryForm()
-    labcategorys = Labcategory.objects.filter(spous=request.user).exclude()    
-    return render(request, "index.html", {"form": form, "labcategorys": labcategorys})
+#    if user.is_authenticated
+#if request.user.is_svp and request.user.is_mvp:
+    if request.user.is_svp and request.user.is_mvp:
+     user = request.user
+     form = LabcategoryForm()
+     labcategorys = Labcategory.objects.filter(spous=request.user).exclude()    
+     return render(request, "index.html", {"form": form, "labcategorys": labcategorys})
 
 
 def lab_index(request):

@@ -9,6 +9,22 @@ from .models import User
 
 
 
+#class HorizRadioRenderer(forms.RadioSelect.renderer):
+#    """ this overrides widget method to put radio buttons horizontally
+#        instead of vertically.
+#    """
+#    def render(self):
+#            """Outputs radios"""
+#            return mark_safe(u'\n'.join([u'%s\n' % w for w in self]))
+
+
+from django.utils.safestring import mark_safe
+
+#class HorizontalRadioRenderer(forms.RadioSelect.renderer):
+#  def render(self):
+#    return mark_safe(u'\n'.join([u'%s\n' % w for w in self]))
+
+
 
 
 
@@ -24,6 +40,7 @@ class RegistrationForm(forms.ModelForm):
                                                            }))                                                           
     password1 = forms.CharField(max_length=50,
                                 required=True,
+                                label="Password",
                                 widget=forms.PasswordInput(attrs={'placeholder': 'Password',
                                                                   'class': 'form-control',
                                                                   'data-toggle': 'password',
@@ -31,16 +48,28 @@ class RegistrationForm(forms.ModelForm):
                                                                   }))
     password2 = forms.CharField(max_length=50,
                                 required=True,
+                                label="Confirm Password",
                                 widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password',
                                                                   'class': 'form-control',
                                                                   'data-toggle': 'password',
                                                                   'id': 'password',
                                                                   }))
-
-
+                                                                  
+                                                                  
+#    is_mvp = forms.CharField(label="Are you a US Citizen?",
+#                                 widget=forms.RadioSelect(attrs=HorizRadioRenderer,
+#                                 widget=forms.RadioSelect(attrs={'id': 'value'}))
+#                                 widget=
+#                                 choices=(('yes','YES'),('no','NO'))), required=True)  
+                                                                                             
+#    is_mvp = forms.ChoiceField(choices=APPROVAL_CHOICES,
+#                 initial=0,
+#                 widget=forms.RadioSelect(renderer=HorizontalRadioRenderer),
+#                                 )
+#    is_mvp = forms.ChoiceField(widget=forms.RadioSelect(attrs={'class': 'star'}), choices=(('False', 'x'), ('True', 'y'),))
     class Meta:
         model = User
-        fields = ('institution_name', 'email', 'password1', 'password2')
+        fields = ('institution_name', 'email', 'password1', 'password2', 'quetion', 'is_svp', 'is_spo', 'is_rev', 'qtwo', 'is_mvp', 'is_dpn')
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -71,7 +100,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('institution_name','email', 'password', 'is_staff', 'is_superuser')
+        fields = ('institution_name','email', 'password', 'is_staff', 'is_superuser', 'is_mvp')
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -94,7 +123,7 @@ class UserChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField()
     class Meta:
         model = User
-        fields = ('institution_name', 'email', 'password', 'is_active', 'is_superuser')
+        fields = ('institution_name', 'email', 'password', 'is_active', 'is_superuser', 'is_mvp')
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.

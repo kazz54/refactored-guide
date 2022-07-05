@@ -13,7 +13,6 @@ from django.urls import reverse
 from django.views.generic import FormView, TemplateView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Group
 #from .models import User 
 from django.http import HttpResponseRedirect
 from django.utils import timezone
@@ -22,52 +21,33 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-#class RegistrationView(CreateView):
-#    template_name = 'registration/register.html'
-#    form_class = RegistrationForm
+class RegistrationView(CreateView):
+    template_name = 'registration/register.html'
+    form_class = RegistrationForm
 
-#    def get_context_data(self, *args, **kwargs):
-#        context = super(RegistrationView, self).get_context_data(*args, **kwargs)
-#        context['next'] = self.request.GET.get('next')
-#        return context
-
-#    def get_success_url(self):
-#        next_url = self.request.POST.get('next')
-#        success_url = reverse('login')
-#        if next_url:
-#            success_url += '?next={}'.format(next_url)
-
-#        return success_url
-#@login_required
-def RegistrationView(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            group = Group.objects.get(name='general')
-            user.groups.add(group)
-            return redirect('login')
-    else:
-        form = RegistrationForm()
-    return render(request, 'registration/register.html', {'form': form})
-
-class ProfileView(UpdateView):
-    model = User
-    form_class = ProfileForm
-    template_name = 'profile/profile.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super(RegistrationView, self).get_context_data(*args, **kwargs)
+        context['next'] = self.request.GET.get('next')
+        return context
 
     def get_success_url(self):
-        if self.request.user.is_staff:
-         return reverse('welcome')
-        if self.request.user.is_svp:
-         return reverse('indexView')
-        if self.request.user.is_spo:
-         return reverse('index2View')
-        if self.request.user.is_rev:
-         return reverse('indexmicView')         
+        next_url = self.request.POST.get('next')
+        success_url = reverse('login')
+        if next_url:
+            success_url += '?next={}'.format(next_url)
 
-    def get_object(self):
-        return self.request.user
+        return success_url
+
+#class ProfileView(UpdateView):
+#    model = User
+#    form_class = ProfileForm
+#    template_name = 'profile/profile.html'
+
+#    def get_success_url(self):
+#        return reverse('welcome')
+
+#    def get_object(self):
+#        return self.request.user
 
 #@login_required
 #def ProfileView(request):
@@ -121,25 +101,24 @@ class ProfileView(UpdateView):
 #                messages.info(request,"Username or Password is incorrect")
 #                return redirect('login')
     
-#def ProfileView(request):
+def ProfileView(request):
 #    if request.user.is_authenticated:
-#     if request.method == "POST":
-#        form = ProfileForm(request.POST, request.FILES)
+     if request.method == "POST":
+        form = ProfileForm(request.POST, request.FILES)
         
-#        if request.user.is_staff:
-#          if form.is_valid():
-#           application = form.save(commit=False)
-#           application.author = request.user
-#           application.save()
+        if request.user.is_staff:
+          if form.is_valid():
+           application = form.save(commit=False)
+           application.author = request.user
+           application.save()
 #    if request.user.is_admin:
-#           return redirect('index')
-#     else:
-#          form = ProfileForm()
-#          return render(request, 'prif/crispy_form.html', {'form': form})      
+           return redirect('index')
+     else:
+          form = ProfileForm()
+          return render(request, 'prif/crispy_form.html', {'form': form})      
 #     else:
 #        if request.user.is_active:
 #         return redirect('welcome')
-@login_required
 def welcome(request):
          return render(request, 'prif/crispy_form.html')
 

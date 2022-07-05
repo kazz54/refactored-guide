@@ -9,7 +9,14 @@ from .managers import CustomUserManager
 from model_utils import Choices
 from django_countries.fields import CountryField
 
+#class Category(models.Model):
+#    name = models.CharField(max_length=20)
 
+#    def __str__(self):
+#        return str(self.name)
+
+#    class Meta:
+#        verbose_name_plural = 'categories'
 
 class User(AbstractBaseUser, PermissionsMixin):
     institution_name = models.CharField(max_length=50)
@@ -33,6 +40,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     MANDATE_OF_INSTITUTION = Choices('Treatment/Prevention', 'Research', 'Manufacturing', 'Others')
     mandate_of_institution = models.CharField(verbose_name='What is the mandate of your institution', choices=MANDATE_OF_INSTITUTION, blank=True, null=True, max_length=50)
     other_mandate_of_institution = models.CharField(blank=True, null=True, max_length=500)
+    quetion = models.CharField(blank=True, verbose_name='which sector doeas your institution/organazation belongs to', null=True, max_length=500)
+#    categories = models.ManyToManyField('Category', verbose_name='Which categories of technologies does your institution use', related_name='categories')
 #   Technologies			
 #    location_typedd = models.CharField(blank=True, null=True, max_length=500)
 #    CATEGORY_OF_TECHNOLOGIES = Choices('Laboratory', 'Radiology', 'Microbiology', 'Others (specify)')
@@ -44,18 +53,21 @@ class User(AbstractBaseUser, PermissionsMixin):
 #    passportimg = models.ImageField(verbose_name='Passport image', default='default.jpg', blank=True, null=True, upload_to='photos/%Y/%m/%d/')
 #    ROLE = Choices('Yes', 'No')
 #    role = models.CharField(choices=ROLE, verbose_name='Are you Tanzanian?', default=False, max_length=20)
-    is_mvp = models.BooleanField(default=False)
-    is_svp = models.BooleanField(default=False)
-    is_spo = models.BooleanField(default=False)
-    is_rev = models.BooleanField(default=False)
-    is_drcp = models.BooleanField(default=False)
+    qtwo = models.CharField(blank=True, verbose_name='Are you resposible for adding equipment to the database?', null=True, max_length=500)
+    is_mvp = models.BooleanField(verbose_name='yes',default=False)
+    is_dpn = models.BooleanField(verbose_name='no',default=False)
+    is_svp = models.BooleanField(verbose_name='Laboratory',default=False)
+    is_spo = models.BooleanField(verbose_name='Radiology',default=False)
+    is_rev = models.BooleanField(verbose_name='Microbiology',default=False)
+    is_drcp = models.BooleanField(verbose_name='Others (specify)',default=False)
+#    is_qtn = models.BooleanField(verbose_name='Others (specify)',default=False)
     is_mgt = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['institution_name', 'phone_number']
+    REQUIRED_FIELDS = ['institution_name', 'phone_number', 'is_mvp']
 
     objects = CustomUserManager()
 

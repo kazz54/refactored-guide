@@ -10,10 +10,11 @@ from django.views import View
 
 
 def index2View(request):
-    user = request.user
-    form = RadcategoryForm()
-    radcategorys = Radcategory.objects.filter(radusr=request.user).exclude()
-    return render(request, "index2.html", {"form": form, "radcategorys": radcategorys})
+    if request.user.is_spo:
+     user = request.user
+     form = RadcategoryForm()
+     radcategorys = Radcategory.objects.filter(radusr=request.user).exclude()
+     return render(request, "index2.html", {"form": form, "radcategorys": radcategorys})
 
 def rad_index(request):
     radcategorys = Radcategory.objects.all()

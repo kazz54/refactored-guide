@@ -11,10 +11,11 @@ from django.views import View
 
 
 def indexmicView(request):
-    user = request.user
-    form = MicrobioForm()
-    microbios = Microbio.objects.filter(mic=request.user).exclude()    
-    return render(request, "indexmic.html", {"form": form, "microbios": microbios})
+#    if request.user.is_rev():
+     user = request.user
+     form = MicrobioForm()
+     microbios = Microbio.objects.filter(mic=request.user).exclude()    
+     return render(request, "indexmic.html", {"form": form, "microbios": microbios})
 
 
 def mic_index(request):
