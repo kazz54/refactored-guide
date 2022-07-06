@@ -317,8 +317,11 @@ h3, .h3 {
 h4, .h4 {
   font-size: 1.5rem; }
 
+ 
 h5, .h5 {
-  font-size: 1.25rem; }
+    color: #d0a454;
+    font-size: 1.55rem;
+}  
 
 h6, .h6 {
   font-size: 1rem; }
